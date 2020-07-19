@@ -1,4 +1,4 @@
-//storage account with primary storage key output
+//storage account with primary storage key output developed by Rahul Ambhore
 
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
