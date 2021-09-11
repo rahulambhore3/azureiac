@@ -29,3 +29,13 @@ for i in range(1,11):
     #print(table*i) # this will also do 
     
 #Task3
+number = [2,3,5,8,9]
+for i in number:
+    if i%2 ==0:
+        print('printing even number')
+        print(i)
+    if i%2 !=0:
+        print('printing odd number')
+        print(i)
+
+
