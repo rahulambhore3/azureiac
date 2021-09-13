@@ -1,6 +1,6 @@
 
 #Task1
-
+print("Task 1 started")
 def day2(total, *args, **kargs):
     for i in range(0, len(args)):
         total = total + args[i]
@@ -12,7 +12,7 @@ for i in range(len(number)):
     number[i] = int(number[i])
 day2(total, *number)
 
-
+print("Task 2 started")
 #Task2
 def task2(normal, *args, **kargs):
      print(normal)
@@ -23,7 +23,7 @@ mark = {"raul": "99", "avg_marks":"55", "failing_user": ['Hidan','Goku', 'Timon'
 
 task2(normal, **mark)
 #***************************************
-
+print(f"Task 3 started")
 #task3
 
 a_dict = [
@@ -72,5 +72,4 @@ a_dict = [
 ]
 
 for i in a_dict:
-    print(i)
-
+    print(i['name'], i['power'], i['powerlevel'], i['frieds'][0]['name'], i['frieds'][0]['friend_points'],i['frieds'][0]['enemies'][0], i['frieds'][0]['name'] )
