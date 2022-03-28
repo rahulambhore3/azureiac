@@ -1,0 +1,44 @@
+resources:
+  repositories:
+   - repository: self
+     type: git
+   - repository: template
+     type: git
+     name: azure-templates
+trigger: #none
+ branches:
+   include:
+     - '*'
+parameters:
+- name: helm
+  displayName: Helm_Push
+  type: boolean
+  default: true
+
+pool:
+  vmImage: windows-2022
+
+stages:
+  - stage: Build_stage_dev
+    displayName: Building application
+    jobs:
+      - job: provision_azrm_rg
+        workspace:
+          clean: all
+        steps:
+        - template: cloud/az_cli.yml@template
+  - stage: remove_rg
+    displayName: removing rg
+    dependsOn:
+      - Build_stage_dev
+    jobs:
+    - deployment: remove_rg
+      displayName: removing-rg
+      environment: UAT
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - template: cloud/az_cli_delete.yml@template
+
+
